@@ -2,7 +2,7 @@
   "name": "rollup-plugin-strip-banner",
   "version": "0.0.0",
   "description": "Rollup plugin that can be used to remove banner on modules",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "gulp test",
     "lint": "gulp lint",
@@ -16,9 +16,12 @@
     "rollup-pluginutils": "1.5.2"
   },
   "devDependencies": {
+    "babel": "6.5.2",
+    "babel-preset-es2015": "6.18.0",
     "eslint": "3.10.0",
     "eslint-config-google": "0.7.0",
     "gulp": "3.9.1",
+    "gulp-babel": "6.1.2",
     "gulp-eslint": "3.0.1",
     "gulp-jasmine": "2.4.2",
     "jasmine-core": "2.5.2"

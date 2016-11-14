@@ -24,10 +24,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const plugin = require('../src/index.js');
+const plugin = require('../dist/index.js');
 
-describe('rollup-plugin-strip-banner', function() {
-  it('should strip banner and generate sourceMap by default', function() {
+describe('rollup-plugin-strip-banner', () => {
+  it('should strip banner and generate sourceMap by default', () => {
     const instance = plugin();
     const id = 'test-file.js';
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
@@ -38,7 +38,7 @@ describe('rollup-plugin-strip-banner', function() {
     expect(result.map).toBeDefined();
   });
 
-  it('should strip banner without sourceMap by default', function() {
+  it('should strip banner without sourceMap by default', () => {
     const instance = plugin({
       sourceMap: false,
     });
@@ -52,7 +52,7 @@ describe('rollup-plugin-strip-banner', function() {
     expect(result.map).not.toBeDefined();
   });
 
-  it('should ignore source if it is does not have banner', function() {
+  it('should ignore source if it is does not have banner', () => {
     const id = 'test-file-without-banner.js';
 
     const instance = plugin({
@@ -66,7 +66,7 @@ describe('rollup-plugin-strip-banner', function() {
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore source if it is not included', function() {
+  it('should ignore source if it is not included', () => {
     const id = 'test-file.js';
 
     const instance = plugin({
@@ -81,7 +81,7 @@ describe('rollup-plugin-strip-banner', function() {
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore source if it is excluded', function() {
+  it('should ignore source if it is excluded', () => {
     const id = 'test-file.js';
 
     const instance = plugin({

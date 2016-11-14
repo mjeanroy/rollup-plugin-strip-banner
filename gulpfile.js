@@ -26,8 +26,9 @@ const path = require('path');
 const gulp = require('gulp');
 const jasmine = require('gulp-jasmine');
 const eslint = require('gulp-eslint');
+const babel = require('gulp-babel');
 
-gulp.task('test', function() {
+gulp.task('test', ['build'], function() {
   return gulp
     .src(path.join(__dirname, 'test', '**', '*.spec.js'))
     .pipe(jasmine());
@@ -43,5 +44,10 @@ gulp.task('lint', function() {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('build', ['lint', 'test']);
+gulp.task('build', ['lint'], function() {
+  gulp.src(path.join(__dirname, 'src', 'index.js'))
+    .pipe(babel())
+    .pipe(gulp.dest(path.join(__dirname, 'dist')));
+});
+
 gulp.task('default', ['build']);

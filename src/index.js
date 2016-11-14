@@ -26,12 +26,11 @@ const rollupPluginUtils = require('rollup-pluginutils');
 const extractBanner = require('extract-banner');
 const MagicString = require('magic-string');
 
-module.exports = function(options) {
-  const opts = options || {};
-  const filter = rollupPluginUtils.createFilter(opts.include, opts.exclude);
+module.exports = function(options = {}) {
+  const filter = rollupPluginUtils.createFilter(options.include, options.exclude);
 
   return {
-    transform: function(code, id) {
+    transform(code, id) {
       if (!filter(id)) {
         return;
       }
@@ -55,7 +54,7 @@ module.exports = function(options) {
         code: magicString.toString(),
       };
 
-      if (opts.sourceMap !== false) {
+      if (options.sourceMap !== false) {
         result.map = magicString.generateMap({
           hires: true,
         });
