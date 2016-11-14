@@ -1,6 +1,6 @@
 # rollup-plugin-strip-banner
 
-A plugin for [rollup](https://rollupjs.org) that can be used to remove banners (such as license
+A plugin for [rollup](http://rollupjs.org) that can be used to remove banners (such as license
 headers) from modules files before generating the final bundle.
 
 ## Installation
