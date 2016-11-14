@@ -7,7 +7,11 @@
     "test": "gulp test",
     "lint": "gulp lint",
     "build": "gulp build",
-    "clean": "gulp clean"
+    "clean": "gulp clean",
+    "release": "gulp release:minor",
+    "release:patch": "gulp release:patch",
+    "release:minor": "gulp release:minor",
+    "release:major": "gulp release:major"
   },
   "author": "Mickael Jeanroy <mickael.jeanroy@gmail.com>",
   "license": "MIT",
