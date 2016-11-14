@@ -31,11 +31,16 @@ const gutil = require('gulp-util');
 const git = require('gulp-git');
 const bump = require('gulp-bump');
 const runSequence = require('run-sequence');
+const del = require('del');
 
 gulp.task('test', ['build'], function() {
   return gulp
     .src(path.join(__dirname, 'test', '**', '*.spec.js'))
     .pipe(jasmine());
+});
+
+gulp.task('clean', () => {
+  return del([path.join(__dirname, 'dist')]);
 });
 
 gulp.task('lint', function() {
@@ -48,8 +53,8 @@ gulp.task('lint', function() {
         .pipe(eslint.failAfterError());
 });
 
-gulp.task('build', ['lint'], function() {
-  gulp.src(path.join(__dirname, 'src', 'index.js'))
+gulp.task('build', ['lint', 'clean'], () => {
+  return gulp.src(path.join(__dirname, 'src', 'index.js'))
     .pipe(babel())
     .pipe(gulp.dest(path.join(__dirname, 'dist')));
 });
@@ -84,7 +89,7 @@ gulp.task('tag', (done) => {
   });
 
   gulp.task('release:' + level, ['build'], () => {
-    runSequence(`bump:${level}`, 'commit:pre', 'tag', 'commit:post');
+    return runSequence(`bump:${level}`, 'commit:pre', 'tag', 'commit:post');
   });
 });
 
