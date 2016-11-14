@@ -5,9 +5,7 @@ headers) from modules files before generating the final bundle.
 
 ## Installation
 
-```bash
-npm install --save-dev rollup-plugin-strip-banner
-```
+```npm install --save-dev rollup-plugin-strip-banner```
 
 ## Configuration and usage
 
