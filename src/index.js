@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 
+const path = require('path');
 const rollupPluginUtils = require('rollup-pluginutils');
 const extractBanner = require('extract-banner');
 const MagicString = require('magic-string');
@@ -32,6 +33,12 @@ module.exports = function(options = {}) {
   return {
     transform(code, id) {
       if (!filter(id)) {
+        return;
+      }
+
+      // Remove banner for JS files only
+      const ext = path.extname(id).toLowerCase();
+      if (ext !== '.js') {
         return;
       }
 

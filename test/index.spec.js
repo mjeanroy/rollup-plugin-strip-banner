@@ -96,4 +96,14 @@ describe('rollup-plugin-strip-banner', () => {
 
     expect(result).not.toBeDefined();
   });
+
+  it('should ignore non JS file', () => {
+    const id = 'test-file.txt';
+    const instance = plugin();
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result).not.toBeDefined();
+  });
 });
