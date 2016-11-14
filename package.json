@@ -4,7 +4,9 @@
   "description": "Rollup plugin that can be used to remove banner on modules",
   "main": "src/index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "build": "gulp build"
   },
   "author": "Mickael Jeanroy <mickael.jeanroy@gmail.com>",
   "license": "MIT",
@@ -14,7 +16,10 @@
     "rollup-pluginutils": "1.5.2"
   },
   "devDependencies": {
+    "eslint": "3.10.0",
+    "eslint-config-google": "0.7.0",
     "gulp": "3.9.1",
+    "gulp-eslint": "3.0.1",
     "gulp-jasmine": "2.4.2",
     "jasmine-core": "2.5.2"
   }

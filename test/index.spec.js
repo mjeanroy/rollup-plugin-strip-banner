@@ -22,77 +22,77 @@
  * SOFTWARE.
  */
 
-var fs = require('fs');
-var path = require('path');
-var plugin = require('../src/index.js');
+const fs = require('fs');
+const path = require('path');
+const plugin = require('../src/index.js');
 
-describe('rollup-plugin-strip-banner', function () {
-  it('should strip banner and generate sourceMap by default', function () {
-    var instance = plugin();
-    var id = 'test-file.js';
-    var code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+describe('rollup-plugin-strip-banner', function() {
+  it('should strip banner and generate sourceMap by default', function() {
+    const instance = plugin();
+    const id = 'test-file.js';
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
 
-    var result = instance.transform(code, id);
+    const result = instance.transform(code, id);
 
     expect(result.code).toEqual(`console.log('hello world');\n`);
     expect(result.map).toBeDefined();
   });
 
-  it('should strip banner without sourceMap by default', function () {
-    var instance = plugin({
-      sourceMap: false
+  it('should strip banner without sourceMap by default', function() {
+    const instance = plugin({
+      sourceMap: false,
     });
 
-    var id = 'test-file.js';
-    var code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const id = 'test-file.js';
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
 
-    var result = instance.transform(code, id);
+    const result = instance.transform(code, id);
 
     expect(result.code).toEqual(`console.log('hello world');\n`);
     expect(result.map).not.toBeDefined();
   });
 
-  it('should ignore source if it is does not have banner', function () {
-    var id = 'test-file-without-banner.js';
+  it('should ignore source if it is does not have banner', function() {
+    const id = 'test-file-without-banner.js';
 
-    var instance = plugin({
-      sourceMap: false
-    });
-
-    var code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
-
-    var result = instance.transform(code, id);
-
-    expect(result).not.toBeDefined();
-  });
-
-  it('should ignore source if it is not included', function () {
-    var id = 'test-file.js';
-
-    var instance = plugin({
+    const instance = plugin({
       sourceMap: false,
-      include: '**/*.spec.js'
     });
 
-    var code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
 
-    var result = instance.transform(code, id);
+    const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore source if it is excluded', function () {
-    var id = 'test-file.js';
+  it('should ignore source if it is not included', function() {
+    const id = 'test-file.js';
 
-    var instance = plugin({
+    const instance = plugin({
+      sourceMap: false,
+      include: '**/*.spec.js',
+    });
+
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result).not.toBeDefined();
+  });
+
+  it('should ignore source if it is excluded', function() {
+    const id = 'test-file.js';
+
+    const instance = plugin({
       sourceMap: false,
       include: '**/*test*.js',
-      exclude: id
+      exclude: id,
     });
 
-    var code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
 
-    var result = instance.transform(code, id);
+    const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });

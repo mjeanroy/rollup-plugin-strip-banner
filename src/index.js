@@ -22,21 +22,21 @@
  * SOFTWARE.
  */
 
-var rollupPluginUtils = require('rollup-pluginutils');
-var extractBanner = require('extract-banner');
-var MagicString = require('magic-string');
+const rollupPluginUtils = require('rollup-pluginutils');
+const extractBanner = require('extract-banner');
+const MagicString = require('magic-string');
 
-module.exports = function (options) {
-  var opts = options || {};
-  var filter = rollupPluginUtils.createFilter(opts.include, opts.exclude);
+module.exports = function(options) {
+  const opts = options || {};
+  const filter = rollupPluginUtils.createFilter(opts.include, opts.exclude);
 
   return {
-    transform: function (code, id) {
+    transform: function(code, id) {
       if (!filter(id)) {
         return;
       }
 
-      var banner = extractBanner(code);
+      const banner = extractBanner(code);
       if (!banner) {
         return;
       }
@@ -51,17 +51,17 @@ module.exports = function (options) {
       // Trim left to remove blank spaces.
       magicString.trimStart();
 
-      var result = {
-        code: magicString.toString()
+      const result = {
+        code: magicString.toString(),
       };
 
       if (opts.sourceMap !== false) {
         result.map = magicString.generateMap({
-          hires: true
+          hires: true,
         });
       }
 
       return result;
-    }
+    },
   };
 };
