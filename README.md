@@ -2,7 +2,7 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/mjeanroy/rollup-plugin-strip-banner.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/mjeanroy/rollup-plugin-strip-banner.svg?branch=master)](https://travis-ci.org/mjeanroy/rollup-plugin-strip-banner)
-[![Get it on npm](https://nodei.co/npm/rollup-plugin-strip-banner.png?compact=true)](https://www.npmjs.org/package/rollup-plugin-strip-banner)
+[![Npm version](https://badge.fury.io/js/rollup-plugin-strip-banner.svg)](https://badge.fury.io/js/rollup-plugin-strip-banner)
 
 A plugin for [rollup](http://rollupjs.org) that can be used to remove banners (such as license
 headers) from modules files before generating the final bundle.
