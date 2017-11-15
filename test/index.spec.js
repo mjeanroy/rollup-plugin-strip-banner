@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+'use strict';
+
 const fs = require('fs');
 const path = require('path');
 const plugin = require('../dist/index.js');
