@@ -18,7 +18,7 @@
   "dependencies": {
     "extract-banner": "0.1.2",
     "magic-string": "0.24.0",
-    "rollup-pluginutils": "2.1.0"
+    "rollup-pluginutils": "2.1.1"
   },
   "repository": {
     "type": "git",
