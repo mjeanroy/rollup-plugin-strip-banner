@@ -38,7 +38,7 @@ module.exports = function(options = {}) {
 
       // Remove banner for JS files only
       const ext = path.extname(id).toLowerCase();
-      if (ext !== '.js') {
+      if (ext !== '.js' && ext !== '.jsx' && ext !== '.ts' && ext !== '.tsx') {
         return;
       }
 
