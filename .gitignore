@@ -1,5 +1,6 @@
-# Remove node_modules
-node_modules/
+# NPM & Node
+/node_modules
+/package-lock.json
 
 # Transpiled file
 dist/
