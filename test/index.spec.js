@@ -108,4 +108,34 @@ describe('rollup-plugin-strip-banner', () => {
 
     expect(result).not.toBeDefined();
   });
+
+  it('should not ignore JSX file', () => {
+    const id = 'test-file.jsx';
+    const instance = plugin();
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result).toBeDefined();
+  });
+
+  it('should not ignore TS file', () => {
+    const id = 'test-file.ts';
+    const instance = plugin();
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result).toBeDefined();
+  });
+
+  it('should not ignore TSX file', () => {
+    const id = 'test-file.tsx';
+    const instance = plugin();
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result).toBeDefined();
+  });
 });
