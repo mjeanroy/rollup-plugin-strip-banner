@@ -58,20 +58,20 @@ describe('rollup-plugin-strip-banner', () => {
     };
 
     rollup.rollup(config)
-      .then((bundle) => bundle.write(config.output))
-      .then(() => {
-        fs.readFile(output, 'utf8', (err, data) => {
-          if (err) {
-            done.fail(err);
-          }
+        .then((bundle) => bundle.write(config.output))
+        .then(() => {
+          fs.readFile(output, 'utf8', (err, data) => {
+            if (err) {
+              done.fail(err);
+            }
 
-          const content = data.toString();
+            const content = data.toString();
 
-          expect(content).toBeDefined();
-          expect(content.trim()).toEqual(`console.log('hello world');`);
+            expect(content).toBeDefined();
+            expect(content.trim()).toEqual(`console.log('hello world');`);
 
-          done();
+            done();
+          });
         });
-      });
   });
 });
