@@ -26,6 +26,7 @@ const path = require('path');
 const gulp = require('gulp');
 const eslint = require('gulp-eslint');
 const config = require('../config');
+const log = require('../log');
 
 module.exports = function lint() {
   const inputs = [
@@ -34,6 +35,12 @@ module.exports = function lint() {
     path.join(config.test, '**', '*.js'),
     path.join(config.scripts, '**', '*.js'),
   ];
+
+  log.debug('Linting files: ');
+
+  inputs.forEach((input) => (
+    log.debug(`  ${input}`)
+  ));
 
   return gulp.src(inputs)
       .pipe(eslint())

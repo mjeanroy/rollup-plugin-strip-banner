@@ -22,6 +22,14 @@
  * SOFTWARE.
  */
 
-/* eslint-disable */
+'use strict';
 
-console.log('hello world');
+/**
+ * Join array of lines with line separator.
+ *
+ * @param {Array<string>} lines Given lines to join.
+ * @return {string} Joined lines.
+ */
+module.exports = function joinLines(lines) {
+  return lines.join('\n');
+};

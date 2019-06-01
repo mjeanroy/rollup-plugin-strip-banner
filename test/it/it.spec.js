@@ -28,6 +28,7 @@ const path = require('path');
 const fs = require('fs');
 const rollup = require('rollup');
 const tmp = require('tmp');
+const joinLines = require('../utils/join-lines');
 const stripBanner = require('../../dist/index.js');
 
 describe('rollup-plugin-strip-banner', () => {
@@ -68,7 +69,12 @@ describe('rollup-plugin-strip-banner', () => {
             const content = data.toString();
 
             expect(content).toBeDefined();
-            expect(content.trim()).toEqual(`console.log('hello world');`);
+            expect(content).toEqual(joinLines([
+              '/* eslint-disable */',
+              '',
+              `console.log('hello world');`,
+              '',
+            ]));
 
             done();
           });

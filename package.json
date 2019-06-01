@@ -4,6 +4,7 @@
   "description": "Rollup plugin that can be used to remove banner on modules",
   "main": "dist/index.js",
   "scripts": {
+    "tdd": "gulp tdd",
     "test": "gulp test",
     "lint": "gulp lint",
     "build": "gulp build",

@@ -10,18 +10,44 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
  */
 
-/* eslint-disable */
+'use strict';
 
-console.log('hello world');
+const log = require('fancy-log');
+const colors = require('ansi-colors');
+
+/**
+ * Log message to output using `DEBUG` level.
+ *
+ * @param {string} msg Message to log.
+ * @return {void}
+ */
+function debug(msg) {
+  log(colors.grey(msg));
+}
+
+/**
+ * Log message to output using `ERROR` level.
+ *
+ * @param {string} msg Message to log.
+ * @return {void}
+ */
+function error(msg) {
+  log(colors.red(msg));
+}
+
+module.exports = {
+  debug,
+  error,
+};
