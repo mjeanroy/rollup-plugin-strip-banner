@@ -26,5 +26,8 @@
 /node_modules
 /package-lock.json
 
+# Log Files
+/*.log
+
 # Transpiled file
 /dist
