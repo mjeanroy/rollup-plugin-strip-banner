@@ -47,26 +47,6 @@ describe('rollup-plugin-strip-banner', () => {
     expect(result.map).toBeDefined();
   });
 
-  it('should strip banner without sourceMap by default', () => {
-    const instance = plugin({
-      sourceMap: false,
-    });
-
-    const id = 'test-file.js';
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
-
-    const result = instance.transform(code, id);
-
-    expect(result.code).toEqual(joinLines([
-      '/* eslint-disable */',
-      '',
-      `console.log('hello world');`,
-      '',
-    ]));
-
-    expect(result.map).not.toBeDefined();
-  });
-
   it('should ignore source if it is does not have banner', () => {
     const id = 'test-file-without-banner.js';
 

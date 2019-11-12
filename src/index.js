@@ -57,17 +57,12 @@ module.exports = function(options = {}) {
       // Trim left to remove blank spaces.
       magicString.trimStart();
 
-      const result = {
+      return {
         code: magicString.toString(),
-      };
-
-      if (options.sourceMap !== false) {
-        result.map = magicString.generateMap({
+        map: magicString.generateMap({
           hires: true,
-        });
-      }
-
-      return result;
+        }),
+      };
     },
   };
 };
