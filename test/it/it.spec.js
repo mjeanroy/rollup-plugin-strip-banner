@@ -22,14 +22,12 @@
  * SOFTWARE.
  */
 
-'use strict';
-
-const path = require('path');
-const fs = require('fs');
-const rollup = require('rollup');
-const tmp = require('tmp');
-const joinLines = require('../utils/join-lines');
-const stripBanner = require('../../dist/index.js');
+import path from 'path';
+import fs from 'fs';
+import * as rollup from 'rollup';
+import tmp from 'tmp';
+import stripBanner from '../../src/index.js';
+import {joinLines} from '../utils/join-lines';
 
 describe('rollup-plugin-strip-banner', () => {
   let tmpDir;

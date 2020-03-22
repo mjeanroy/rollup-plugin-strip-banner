@@ -22,12 +22,10 @@
  * SOFTWARE.
  */
 
-'use strict';
-
-const fs = require('fs');
-const path = require('path');
-const joinLines = require('./utils/join-lines');
-const plugin = require('../dist/index.js');
+import fs from 'fs';
+import path from 'path';
+import plugin from '../src/index.js';
+import {joinLines} from './utils/join-lines';
 
 describe('rollup-plugin-strip-banner', () => {
   it('should strip banner and generate sourceMap by default', () => {

@@ -27,6 +27,7 @@ const gulp = require('gulp');
 const babel = require('gulp-babel');
 const stripBanner = require('gulp-strip-banner');
 const headerComment = require('gulp-header-comment');
+const prettier = require('gulp-prettier');
 const config = require('../config');
 
 module.exports = function build() {
@@ -34,5 +35,6 @@ module.exports = function build() {
       .pipe(stripBanner())
       .pipe(babel())
       .pipe(headerComment({file: path.join(config.root, 'LICENSE')}))
+      .pipe(prettier())
       .pipe(gulp.dest(config.dist));
 };

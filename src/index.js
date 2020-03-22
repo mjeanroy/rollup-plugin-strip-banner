@@ -22,13 +22,19 @@
  * SOFTWARE.
  */
 
-const path = require('path');
-const rollupPluginUtils = require('rollup-pluginutils');
-const extractBanner = require('extract-banner');
-const MagicString = require('magic-string');
+import path from 'path';
+import extractBanner from 'extract-banner';
+import MagicString from 'magic-string';
+import {createFilter} from 'rollup-pluginutils';
 
-module.exports = function(options = {}) {
-  const filter = rollupPluginUtils.createFilter(options.include, options.exclude);
+/**
+ * Create plugin instance.
+ *
+ * @param {*} options Plugin options.
+ * @return {Objects} The plugin instance.
+ */
+export default function rollupPluginStripBanner(options = {}) {
+  const filter = createFilter(options.include, options.exclude);
 
   return {
     transform(code, id) {
@@ -65,4 +71,4 @@ module.exports = function(options = {}) {
       };
     },
   };
-};
+}

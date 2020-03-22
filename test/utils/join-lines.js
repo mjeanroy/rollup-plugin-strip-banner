@@ -22,14 +22,12 @@
  * SOFTWARE.
  */
 
-'use strict';
-
 /**
  * Join array of lines with line separator.
  *
  * @param {Array<string>} lines Given lines to join.
  * @return {string} Joined lines.
  */
-module.exports = function joinLines(lines) {
+export function joinLines(lines) {
   return lines.join('\n');
-};
+}
