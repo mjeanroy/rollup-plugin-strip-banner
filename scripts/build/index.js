@@ -25,10 +25,14 @@
 const path = require('path');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const stripBanner = require('gulp-strip-banner');
+const headerComment = require('gulp-header-comment');
 const config = require('../config');
 
 module.exports = function build() {
   return gulp.src(path.join(config.src, '**', '*.js'))
+      .pipe(stripBanner())
       .pipe(babel())
+      .pipe(headerComment({file: path.join(config.root, 'LICENSE')}))
       .pipe(gulp.dest(config.dist));
 };
