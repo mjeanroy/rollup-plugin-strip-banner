@@ -30,6 +30,9 @@
     "rollup",
     "rollup-plugin"
   ],
+  "peerDependencies": {
+    "rollup": "^1.0.0"
+  },
   "devDependencies": {
     "@babel/core": "7.9.0",
     "@babel/preset-env": "7.9.0",
@@ -52,5 +55,8 @@
     "rimraf": "3.0.2",
     "rollup": "1.32.0",
     "tmp": "0.1.0"
+  },
+  "engines": {
+    "node": ">=6.0.0"
   }
 }

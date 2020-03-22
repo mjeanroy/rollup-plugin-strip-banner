@@ -28,7 +28,7 @@ import plugin from '../src/index.js';
 import {joinLines} from './utils/join-lines';
 
 describe('rollup-plugin-strip-banner', () => {
-  it('should strip banner and generate sourceMap by default', () => {
+  it('should strip banner and generate sourcemap', () => {
     const instance = plugin();
     const id = 'test-file.js';
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
@@ -47,13 +47,8 @@ describe('rollup-plugin-strip-banner', () => {
 
   it('should ignore source if it is does not have banner', () => {
     const id = 'test-file-without-banner.js';
-
-    const instance = plugin({
-      sourceMap: false,
-    });
-
+    const instance = plugin();
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
-
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
@@ -61,14 +56,11 @@ describe('rollup-plugin-strip-banner', () => {
 
   it('should ignore source if it is not included', () => {
     const id = 'test-file.js';
-
     const instance = plugin({
-      sourceMap: false,
       include: '**/*.spec.js',
     });
 
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
-
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
@@ -76,15 +68,12 @@ describe('rollup-plugin-strip-banner', () => {
 
   it('should ignore source if it is excluded', () => {
     const id = 'test-file.js';
-
     const instance = plugin({
-      sourceMap: false,
       include: '**/*test*.js',
       exclude: id,
     });
 
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
-
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
