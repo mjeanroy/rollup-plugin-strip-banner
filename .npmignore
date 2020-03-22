@@ -40,3 +40,6 @@
 /.nvmrc
 /.travis.yml
 /gulpfile.js
+
+# OS
+.DS_Store

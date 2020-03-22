@@ -31,3 +31,6 @@
 
 # Transpiled file
 /dist
+
+# OS
+.DS_Store
