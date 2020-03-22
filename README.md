@@ -46,6 +46,19 @@ module.exports = {
 
 ## ChangeLogs
 
+- 2.0.0
+  - Add support for rollup ^2.0.0.
+  - Remove support of node < 10.
+- 1.2.0
+  - Make rollup peer dependency explicit.
+  - Make support of node >= 6 explicit.
+- 1.1.0
+  - Dependency updates.
+- 1.0.0
+  - Fix issue with sourcemap generation.
+  - Dependency updates.
+- 0.3.0
+  - Dependency updates.
 - 0.2.0
   - Dependency update (`magic-string`).
   - Dependency update (`rollup-pluginutils`).
