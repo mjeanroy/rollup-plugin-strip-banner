@@ -53,7 +53,7 @@
     "gulp-strip-banner": "0.0.2",
     "jasmine-core": "3.5.0",
     "rimraf": "3.0.2",
-    "rollup": "2.1.0",
+    "rollup": "2.2.0",
     "tmp": "0.1.0"
   },
   "engines": {
