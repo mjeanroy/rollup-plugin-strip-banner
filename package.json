@@ -49,9 +49,10 @@
     "gulp-git": "2.10.1",
     "gulp-header-comment": "0.6.1",
     "gulp-jasmine": "4.0.0",
-    "gulp-prettier": "2.3.0",
+    "gulp-prettier": "3.0.0",
     "gulp-strip-banner": "0.0.2",
     "jasmine-core": "3.5.0",
+    "prettier": "2.0.5",
     "rimraf": "3.0.2",
     "rollup": "2.7.6",
     "tmp": "0.2.1"
