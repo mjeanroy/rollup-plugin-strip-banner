@@ -52,7 +52,7 @@
     "gulp-prettier": "3.0.0",
     "gulp-strip-banner": "0.0.2",
     "jasmine-core": "3.6.0",
-    "prettier": "2.1.2",
+    "prettier": "2.2.0",
     "rimraf": "3.0.2",
     "rollup": "2.33.3",
     "tmp": "0.2.1"
