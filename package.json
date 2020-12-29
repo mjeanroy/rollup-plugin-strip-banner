@@ -47,7 +47,7 @@
     "gulp-conventional-changelog": "2.0.35",
     "gulp-eslint": "6.0.0",
     "gulp-git": "2.10.1",
-    "gulp-header-comment": "0.8.0",
+    "gulp-header-comment": "0.9.0",
     "gulp-jasmine": "4.0.0",
     "gulp-prettier": "3.0.0",
     "gulp-strip-banner": "0.0.2",
