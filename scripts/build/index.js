@@ -22,6 +22,9 @@
  * SOFTWARE.
  */
 
+// Required with prettier >= 2.3.0 with node 11
+require('globalthis').shim();
+
 const path = require('path');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
