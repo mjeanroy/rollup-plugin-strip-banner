@@ -32,5 +32,9 @@
 # Transpiled file
 /dist
 
+# IDE
+/.idea
+/*.iml
+
 # OS
 .DS_Store
