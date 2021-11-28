@@ -42,10 +42,19 @@ describe('rollup-plugin-strip-banner', () => {
     tmpDir.removeCallback();
   });
 
-  it('should run prettier on final bundle', (done) => {
+  it('should strip banner of chunks', (done) => {
+    runAndVerify('test-file-1', done);
+  });
+
+  it('should strip banner with "@license" keyword', (done) => {
+    runAndVerify('test-file-2', done);
+  });
+
+  // eslint-disable-next-line require-jsdoc
+  function runAndVerify(fileName, done) {
     const output = path.join(tmpDir.name, 'bundle.js');
     const config = {
-      input: path.join(__dirname, '..', 'fixtures', 'test-file.js'),
+      input: path.join(__dirname, '..', 'fixtures', fileName),
       output: {
         file: output,
         format: 'es',
@@ -77,5 +86,5 @@ describe('rollup-plugin-strip-banner', () => {
             done();
           });
         });
-  });
+  }
 });

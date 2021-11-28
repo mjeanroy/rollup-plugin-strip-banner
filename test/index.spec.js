@@ -30,7 +30,24 @@ import {joinLines} from './utils/join-lines';
 describe('rollup-plugin-strip-banner', () => {
   it('should strip banner and generate sourcemap', () => {
     const instance = plugin();
-    const id = 'test-file.js';
+    const id = 'test-file-1.js';
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+
+    const result = instance.transform(code, id);
+
+    expect(result.code).toEqual(joinLines([
+      '/* eslint-disable */',
+      '',
+      `console.log('hello world');`,
+      '',
+    ]));
+
+    expect(result.map).toBeDefined();
+  });
+
+  it('should strip banner with "@license" keyword and generate sourcemap', () => {
+    const instance = plugin();
+    const id = 'test-file-2.js';
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
 
     const result = instance.transform(code, id);
@@ -55,7 +72,7 @@ describe('rollup-plugin-strip-banner', () => {
   });
 
   it('should ignore source if it is not included', () => {
-    const id = 'test-file.js';
+    const id = 'test-file-1.js';
     const instance = plugin({
       include: '**/*.spec.js',
     });
@@ -67,7 +84,7 @@ describe('rollup-plugin-strip-banner', () => {
   });
 
   it('should ignore source if it is excluded', () => {
-    const id = 'test-file.js';
+    const id = 'test-file-1.js';
     const instance = plugin({
       include: '**/*test*.js',
       exclude: id,
@@ -82,7 +99,7 @@ describe('rollup-plugin-strip-banner', () => {
   it('should ignore non JS file', () => {
     const id = 'test-file.txt';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
@@ -90,9 +107,9 @@ describe('rollup-plugin-strip-banner', () => {
   });
 
   it('should not ignore JSX file', () => {
-    const id = 'test-file.jsx';
+    const id = 'test-file-1.jsx';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
@@ -102,7 +119,7 @@ describe('rollup-plugin-strip-banner', () => {
   it('should not ignore TS file', () => {
     const id = 'test-file.ts';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
@@ -112,7 +129,7 @@ describe('rollup-plugin-strip-banner', () => {
   it('should not ignore TSX file', () => {
     const id = 'test-file.tsx';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file.js'), 'utf-8');
+    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
