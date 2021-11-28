@@ -30,17 +30,22 @@ const log = require('../log');
 module.exports = function lint() {
   const nodeVersion = process.versions.node;
   const major = Number(nodeVersion.split('.')[0]);
-  if (major < 8) {
+  if (major < 12) {
     log.debug(`Skipping ESLint because of node version compatibility (currenly in used: ${nodeVersion})`);
     return Promise.resolve();
   }
 
+  const sourcesOf = (ext) => ([
+    path.join(config.root, `*.${ext}`),
+    path.join(config.src, '**', `*.${ext}`),
+    path.join(config.test, '**', `*.${ext}`),
+    path.join(config.scripts, '**', `*.${ext}`),
+  ]);
+
   const eslint = require('gulp-eslint');
   const inputs = [
-    path.join(config.root, '*.js'),
-    path.join(config.src, '**', '*.js'),
-    path.join(config.test, '**', '*.js'),
-    path.join(config.scripts, '**', '*.js'),
+    ...sourcesOf('js'),
+    ...sourcesOf('ts'),
   ];
 
   log.debug('Linting files: ');

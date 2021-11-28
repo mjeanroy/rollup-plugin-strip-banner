@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  *
- * Copyright (c) 2016-2020 Mickael Jeanroy
+ * Copyright (c) 2016-2021 Mickael Jeanroy
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,41 +22,20 @@
  * SOFTWARE.
  */
 
-// Required with prettier >= 2.3.0 with node 11
-require('globalthis').shim();
+import type {Plugin} from 'rollup';
 
-const path = require('path');
-const gulp = require('gulp');
-const babel = require('gulp-babel');
-const stripBanner = require('gulp-strip-banner');
-const headerComment = require('gulp-header-comment');
-const prettier = require('gulp-prettier');
-const config = require('../config');
+export interface Options {
+  /**
+   * Pattern (or array of pattern) of files to include.
+   */
+  include?: string | string[];
 
-module.exports = gulp.series(
-    buildOutput,
-    copyTypings
-);
-
-/**
- * Build output script into `/dist` directory.
- *
- * @returns {*} Gulp stream.
- */
-function buildOutput() {
-  return gulp.src(path.join(config.src, '**', '*.js'))
-      .pipe(stripBanner())
-      .pipe(babel())
-      .pipe(headerComment({file: path.join(config.root, 'LICENSE')}))
-      .pipe(prettier())
-      .pipe(gulp.dest(config.dist));
+  /**
+   * Pattern (or array of pattern) of files to exclude.
+   */
+  exclude?: string | string[];
 }
 
-/**
- * Copy TypeScript typngs into `/dist` directory.
- *
- * @returns {*} Gulp stream.
- */
-function copyTypings() {
-  return gulp.src(path.join(config.src, 'index.d.ts')).pipe(gulp.dest(config.dist));
-}
+declare function rollupPluginStripBanner(options: Options): Plugin;
+
+export default rollupPluginStripBanner;
