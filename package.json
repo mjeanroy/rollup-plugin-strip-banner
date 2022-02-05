@@ -39,7 +39,7 @@
     "@babel/core": "7.16.12",
     "@babel/preset-env": "7.16.11",
     "@babel/register": "7.16.9",
-    "@typescript-eslint/eslint-plugin": "5.10.1",
+    "@typescript-eslint/eslint-plugin": "5.10.2",
     "@typescript-eslint/parser": "5.10.1",
     "babel-plugin-add-module-exports": "1.0.4",
     "eslint": "8.8.0",
