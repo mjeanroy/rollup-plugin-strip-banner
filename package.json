@@ -36,13 +36,13 @@
     "rollup": "^1.0.0 || ^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@babel/preset-env": "7.17.10",
     "@babel/register": "7.17.7",
-    "@typescript-eslint/eslint-plugin": "5.19.0",
-    "@typescript-eslint/parser": "5.19.0",
+    "@typescript-eslint/eslint-plugin": "5.21.0",
+    "@typescript-eslint/parser": "5.21.0",
     "babel-plugin-add-module-exports": "1.0.4",
-    "eslint": "8.13.0",
+    "eslint": "8.14.0",
     "eslint-config-google": "0.14.0",
     "fancy-log": "2.0.0",
     "globalthis": "1.0.2",
@@ -59,9 +59,9 @@
     "jasmine-core": "3.10.1",
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
-    "rollup": "2.70.1",
+    "rollup": "2.70.2",
     "tmp": "0.2.1",
-    "typescript": "4.6.3"
+    "typescript": "4.6.4"
   },
   "engines": {
     "node": ">=10.0.0"
