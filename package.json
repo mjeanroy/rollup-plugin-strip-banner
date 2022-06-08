@@ -11,6 +11,7 @@
     "lint": "gulp lint",
     "build": "gulp build",
     "clean": "gulp clean",
+    "prepare": "npm run build",
     "release": "gulp release:minor",
     "release:patch": "gulp release:patch",
     "release:minor": "gulp release:minor",
