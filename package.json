@@ -36,7 +36,7 @@
     "rollup": "^1.0.0 || ^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.18.2",
+    "@babel/core": "7.18.5",
     "@babel/preset-env": "7.18.2",
     "@babel/register": "7.17.7",
     "@typescript-eslint/eslint-plugin": "5.27.1",
