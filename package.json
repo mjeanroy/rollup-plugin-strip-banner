@@ -40,7 +40,7 @@
     "@babel/preset-env": "7.18.10",
     "@babel/register": "7.18.9",
     "@typescript-eslint/eslint-plugin": "5.35.1",
-    "@typescript-eslint/parser": "5.33.1",
+    "@typescript-eslint/parser": "5.36.1",
     "babel-plugin-add-module-exports": "1.0.4",
     "eslint": "8.22.0",
     "eslint-config-google": "0.14.0",
