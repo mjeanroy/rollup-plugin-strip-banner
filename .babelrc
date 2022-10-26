@@ -4,11 +4,10 @@
       "@babel/preset-env", {
         "modules": "cjs",
         "targets": {
-          "node": "6"
+          "node": "14"
         }
       }
     ]
-    
   ],
 
   "plugins": [
