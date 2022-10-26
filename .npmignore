@@ -32,15 +32,18 @@
 /test
 /src
 /scripts
+/package
 /.babelrc
 /.eslintrc
 /.eslintignore
 /.gitattributes
 /.github
+/.idea
 /.npmrc
 /.nvmrc
 /.travis.yml
 /gulpfile.js
+/*.tar.gz
 
 # OS
 .DS_Store
