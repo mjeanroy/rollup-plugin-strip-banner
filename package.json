@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-strip-banner",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Rollup plugin that can be used to remove banner on modules",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
