@@ -58,7 +58,7 @@
     "gulp-strip-banner": "0.0.2",
     "jasmine": "3.10.0",
     "jasmine-core": "3.10.1",
-    "prettier": "2.8.4",
+    "prettier": "2.8.5",
     "rimraf": "4.4.0",
     "rollup": "3.19.1",
     "tmp": "0.2.1",
