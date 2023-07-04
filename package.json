@@ -21,7 +21,7 @@
   "license": "MIT",
   "dependencies": {
     "extract-banner": "0.1.2",
-    "magic-string": "0.30.0",
+    "magic-string": "0.30.1",
     "rollup-pluginutils": "2.8.2"
   },
   "repository": {
