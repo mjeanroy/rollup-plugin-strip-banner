@@ -50,7 +50,6 @@
     "gulp-babel": "8.0.0",
     "gulp-bump": "3.2.0",
     "gulp-conventional-changelog": "4.0.0",
-    "gulp-eslint": "6.0.0",
     "gulp-git": "2.10.1",
     "gulp-header-comment": "0.10.0",
     "gulp-jasmine": "4.0.0",
