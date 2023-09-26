@@ -57,7 +57,7 @@
     "jasmine-core": "3.10.1",
     "prettier": "3.0.3",
     "rimraf": "5.0.1",
-    "rollup": "3.29.2",
+    "rollup": "3.29.3",
     "tmp": "0.2.1",
     "typescript": "5.2.2"
   },
