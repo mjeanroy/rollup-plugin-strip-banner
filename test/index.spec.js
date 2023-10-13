@@ -87,7 +87,7 @@ describe('rollup-plugin-strip-banner', () => {
     const id = 'test-file-1.js';
     const instance = plugin({
       include: '**/*test*.js',
-      exclude: id,
+      exclude: `**/${id}`,
     });
 
     const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');

@@ -25,7 +25,7 @@
 import path from 'path';
 import extractBanner from 'extract-banner';
 import MagicString from 'magic-string';
-import {createFilter} from 'rollup-pluginutils';
+import {createFilter} from '@rollup/pluginutils';
 
 /**
  * Create plugin instance.
