@@ -46,6 +46,13 @@ module.exports = {
 
 ## ChangeLogs
 
+- 3.1.0
+  - Add support for rollup ^4.0.0
+  - Dependency upgrades
+- 3.0.0
+  - Add support for rollup ^3.0.0
+  - Dependency upgrades
+  - Remove support of node < 14
 - 2.0.0
   - Add support for rollup ^2.0.0.
   - Remove support of node < 10.
