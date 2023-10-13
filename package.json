@@ -33,7 +33,7 @@
     "rollup-plugin"
   ],
   "peerDependencies": {
-    "rollup": "^1.0.0 || ^2.0.0 || ^3.0.0"
+    "rollup": "^1.0.0 || ^2.0.0 || ^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.23.2",
@@ -57,7 +57,7 @@
     "jasmine-core": "3.10.1",
     "prettier": "3.0.3",
     "rimraf": "5.0.5",
-    "rollup": "3.29.4",
+    "rollup": "4.0.2",
     "tmp": "0.2.1",
     "typescript": "5.2.2"
   },
