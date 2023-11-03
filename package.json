@@ -51,7 +51,7 @@
     "gulp-conventional-changelog": "4.0.0",
     "gulp-header-comment": "0.10.0",
     "gulp-jasmine": "4.0.0",
-    "gulp-prettier": "5.0.0",
+    "gulp-prettier": "6.0.0",
     "gulp-strip-banner": "0.0.2",
     "jasmine": "3.10.0",
     "jasmine-core": "3.10.1",
