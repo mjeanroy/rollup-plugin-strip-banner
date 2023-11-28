@@ -20,7 +20,7 @@
   "author": "Mickael Jeanroy <mickael.jeanroy@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@rollup/pluginutils": "5.0.5",
+    "@rollup/pluginutils": "5.1.0",
     "extract-banner": "0.1.2",
     "magic-string": "0.30.5"
   },
