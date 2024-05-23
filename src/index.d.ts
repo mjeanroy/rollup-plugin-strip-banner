@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import type {Plugin} from 'rollup';
+import type { Plugin } from 'rollup';
 
 export interface Options {
   /**

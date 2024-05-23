@@ -24,8 +24,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import plugin from '../src/index.js';
-import {joinLines} from './utils/join-lines';
+import plugin from '../src/index';
+import { joinLines } from './utils/join-lines';
 
 describe('rollup-plugin-strip-banner', () => {
   it('should strip banner and generate sourcemap', () => {
@@ -38,7 +38,7 @@ describe('rollup-plugin-strip-banner', () => {
     expect(result.code).toEqual(joinLines([
       '/* eslint-disable */',
       '',
-      `console.log('hello world');`,
+      "console.log('hello world');",
       '',
     ]));
 
@@ -55,7 +55,7 @@ describe('rollup-plugin-strip-banner', () => {
     expect(result.code).toEqual(joinLines([
       '/* eslint-disable */',
       '',
-      `console.log('hello world');`,
+      "console.log('hello world');",
       '',
     ]));
 
