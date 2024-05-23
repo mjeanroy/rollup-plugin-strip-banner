@@ -34,8 +34,8 @@ const prettier = require('gulp-prettier');
 const config = require('../config');
 
 module.exports = gulp.series(
-    buildOutput,
-    copyTypings
+  buildOutput,
+  copyTypings,
 );
 
 /**
@@ -45,11 +45,11 @@ module.exports = gulp.series(
  */
 function buildOutput() {
   return gulp.src(path.join(config.src, '**', '*.js'))
-      .pipe(stripBanner())
-      .pipe(babel())
-      .pipe(headerComment({file: path.join(config.root, 'LICENSE')}))
-      .pipe(prettier())
-      .pipe(gulp.dest(config.dist));
+    .pipe(stripBanner())
+    .pipe(babel())
+    .pipe(headerComment({ file: path.join(config.root, 'LICENSE') }))
+    .pipe(prettier())
+    .pipe(gulp.dest(config.dist));
 }
 
 /**
