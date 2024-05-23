@@ -48,7 +48,7 @@
     "globalthis": "1.0.4",
     "gulp": "5.0.0",
     "gulp-babel": "8.0.0",
-    "gulp-conventional-changelog": "4.0.0",
+    "gulp-conventional-changelog": "5.0.0",
     "gulp-header-comment": "0.10.0",
     "gulp-jasmine": "4.0.0",
     "gulp-prettier": "5.0.0",
