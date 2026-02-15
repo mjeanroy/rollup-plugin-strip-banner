@@ -22,16 +22,16 @@
  * SOFTWARE.
  */
 
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import plugin from '../src/index';
 import { joinLines } from './utils/join-lines';
 
 describe('rollup-plugin-strip-banner', () => {
-  it('should strip banner and generate sourcemap', () => {
+  it('should strip banner and generate sourcemap', async () => {
     const instance = plugin();
     const id = 'test-file-1.js';
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', id), 'utf-8');
 
     const result = instance.transform(code, id);
 
@@ -45,10 +45,10 @@ describe('rollup-plugin-strip-banner', () => {
     expect(result.map).toBeDefined();
   });
 
-  it('should strip banner with "@license" keyword and generate sourcemap', () => {
+  it('should strip banner with "@license" keyword and generate sourcemap', async () => {
     const instance = plugin();
     const id = 'test-file-2.js';
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', id), 'utf-8');
 
     const result = instance.transform(code, id);
 
@@ -62,74 +62,74 @@ describe('rollup-plugin-strip-banner', () => {
     expect(result.map).toBeDefined();
   });
 
-  it('should ignore source if it is does not have banner', () => {
+  it('should ignore source if it is does not have banner', async () => {
     const id = 'test-file-without-banner.js';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', id), 'utf-8');
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore source if it is not included', () => {
+  it('should ignore source if it is not included', async () => {
     const id = 'test-file-1.js';
     const instance = plugin({
       include: '**/*.spec.js',
     });
 
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', id), 'utf-8');
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore source if it is excluded', () => {
+  it('should ignore source if it is excluded', async () => {
     const id = 'test-file-1.js';
     const instance = plugin({
       include: '**/*test*.js',
       exclude: `**/${id}`,
     });
 
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', id), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', id), 'utf-8');
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });
 
-  it('should ignore non JS file', () => {
+  it('should ignore non JS file', async () => {
     const id = 'test-file.txt';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
     expect(result).not.toBeDefined();
   });
 
-  it('should not ignore JSX file', () => {
+  it('should not ignore JSX file', async () => {
     const id = 'test-file-1.jsx';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
     expect(result).toBeDefined();
   });
 
-  it('should not ignore TS file', () => {
+  it('should not ignore TS file', async () => {
     const id = 'test-file.ts';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 
     expect(result).toBeDefined();
   });
 
-  it('should not ignore TSX file', () => {
+  it('should not ignore TSX file', async () => {
     const id = 'test-file.tsx';
     const instance = plugin();
-    const code = fs.readFileSync(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
+    const code = await fs.readFile(path.join(__dirname, 'fixtures', 'test-file-1.js'), 'utf-8');
 
     const result = instance.transform(code, id);
 

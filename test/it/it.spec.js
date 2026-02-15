@@ -22,8 +22,8 @@
  * SOFTWARE.
  */
 
-import path from 'path';
-import fs from 'fs/promises';
+import path from 'node:path';
+import fs from 'node:fs/promises';
 import * as rollup from 'rollup';
 import tmp from 'tmp';
 import stripBanner from '../../src/index';

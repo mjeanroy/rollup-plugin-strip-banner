@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import path from 'path';
+import path from 'node:path';
 import extractBanner from 'extract-banner';
 import MagicString from 'magic-string';
 import { createFilter } from '@rollup/pluginutils';
