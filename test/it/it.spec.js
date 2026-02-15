@@ -23,7 +23,7 @@
  */
 
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs/promises';
 import * as rollup from 'rollup';
 import tmp from 'tmp';
 import stripBanner from '../../src/index';
@@ -42,16 +42,16 @@ describe('rollup-plugin-strip-banner', () => {
     tmpDir.removeCallback();
   });
 
-  it('should strip banner of chunks', (done) => {
-    runAndVerify('test-file-1', done);
+  it('should strip banner of chunks', async () => {
+    await runAndVerify('test-file-1');
   });
 
-  it('should strip banner with "@license" keyword', (done) => {
-    runAndVerify('test-file-2', done);
+  it('should strip banner with "@license" keyword', async () => {
+    await runAndVerify('test-file-2');
   });
 
   // eslint-disable-next-line require-jsdoc
-  function runAndVerify(fileName, done) {
+  async function runAndVerify(fileName) {
     const output = path.join(tmpDir.name, 'bundle.js');
     const config = {
       input: path.join(__dirname, '..', 'fixtures', fileName),
@@ -65,26 +65,19 @@ describe('rollup-plugin-strip-banner', () => {
       ],
     };
 
-    rollup.rollup(config)
-      .then((bundle) => bundle.write(config.output))
-      .then(() => {
-        fs.readFile(output, 'utf8', (err, data) => {
-          if (err) {
-            done.fail(err);
-          }
+    const bundle = await rollup.rollup(config);
 
-          const content = data.toString();
+    await bundle.write(config.output);
 
-          expect(content).toBeDefined();
-          expect(content).toEqual(joinLines([
-            '/* eslint-disable */',
-            '',
-            "console.log('hello world');",
-            '',
-          ]));
+    const data = await fs.readFile(output, 'utf8');
+    const content = data.toString();
 
-          done();
-        });
-      });
+    expect(content).toBeDefined();
+    expect(content).toEqual(joinLines([
+      '/* eslint-disable */',
+      '',
+      "console.log('hello world');",
+      '',
+    ]));
   }
 });
