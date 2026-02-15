@@ -29,7 +29,7 @@ import tmp from 'tmp';
 import stripBanner from '../../src/index';
 import { joinLines } from '../utils/join-lines';
 
-describe('rollup-plugin-strip-banner', () => {
+describe('[it] rollup-plugin-strip-banner', () => {
   let tmpDir;
 
   beforeEach(() => {
