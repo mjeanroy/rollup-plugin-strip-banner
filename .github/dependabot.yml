@@ -38,3 +38,7 @@ updates:
     typescript-eslint:
       patterns:
         - "@typescript-eslint/*"
+    jasmine:
+      patterns:
+        - "jasmine"
+        - "jasmine-core"
