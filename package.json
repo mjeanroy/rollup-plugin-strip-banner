@@ -8,6 +8,7 @@
   "scripts": {
     "tdd": "gulp tdd",
     "test": "gulp test",
+    "test:unit": "gulp test:unit",
     "lint": "gulp lint",
     "build": "gulp build",
     "clean": "gulp clean",
