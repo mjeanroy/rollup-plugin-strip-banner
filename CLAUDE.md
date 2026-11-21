@@ -8,7 +8,7 @@ A Rollup plugin (`rollup-plugin-strip-banner`) that removes the leading banner c
 
 ## Commands
 
-Package manager is pnpm (see `pnpm-workspace.yaml`; CI uses pnpm 10). All npm scripts delegate to Gulp tasks defined in `gulpfile.js` → `scripts/*/index.js`.
+Package manager is pnpm 11 (CI pins 11.28.12 through `pnpm/setup`; pnpm 11 itself needs Node ≥ 22.13, but CI installs its standalone binary, so the Node 18–21 runners still work). pnpm settings live in `pnpm-workspace.yaml`: pnpm 11 only reads auth/registry settings from `.npmrc`, which is kept for npm (`npm version` in the release task). All npm scripts delegate to Gulp tasks defined in `gulpfile.js` → `scripts/*/index.js`.
 
 - `pnpm test`: clean → lint → build → run Jasmine specs. Lint failures (including warnings) fail the test run.
 - `pnpm run lint`: ESLint over root, `src/`, `test/`, `scripts/` (`.js` and `.ts`). Skipped on Node ≤ 14. Restrict it with `--file <path>` (repeatable; file, directory or glob), e.g. `pnpm run lint --file src/index.js`. `--file` only affects the standalone `lint` task; `build`/`test`/`release` always lint everything.
