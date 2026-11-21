@@ -15,8 +15,10 @@ Add the plugin in your rollup configuration file:
 const stripBanner = require('rollup-plugin-strip-banner');
 
 module.exports = {
-  entry: 'src/index.js',
-  dest: 'dist/index.js',
+  input: 'src/index.js',
+  output: {
+    file: 'dist/index.js',
+  },
   plugins: [
     stripBanner()
   ]
@@ -29,8 +31,10 @@ As other rollup plugins, `include` and `exclude` can be configured:
 const stripBanner = require('rollup-plugin-strip-banner');
 
 module.exports = {
-  entry: 'src/index.js',
-  dest: 'dist/index.js',
+  input: 'src/index.js',
+  output: {
+    file: 'dist/index.js',
+  },
   plugins: [
     stripBanner({
       include: '**/*.js',
